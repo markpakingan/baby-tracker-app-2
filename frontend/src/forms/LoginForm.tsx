@@ -38,7 +38,7 @@ const LogInForm = () => {
             localStorage.setItem("username", formData.username);
             localStorage.setItem("userId", userId);
 
-            navigate("/");
+            navigate("/dashboard");
 
             console.log(
                 {

@@ -1,11 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
+import { useNavigate, Link} from "react-router-dom";
 
 
-const MyJournal: React.FC  = () => {
-
+const Dashboard: React.FC  = () => {
 
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
@@ -47,11 +45,39 @@ const MyJournal: React.FC  = () => {
    }, [navigate, token, userId])
 
 
-    return (
-        <div>
-            <h1>Here Are All Of What You've Done:</h1>
 
-            {/* <ul>
+
+//    checks if the user already has an existing baby
+   useEffect(()=>{
+
+    const checkIfBabyExist = async()=> {
+
+        try{
+            const response = await axios.get(`${BACKEND_URL}/baby/user/${userId}`)
+            
+            if(!response.data){
+                alert("No baby found!")
+                navigate('/add-baby')
+               }
+ 
+        }catch(error){
+            console.error("error baby found", error)
+        }
+    }
+
+    checkIfBabyExist();
+   }, [navigate, token,userId]);
+
+
+    
+    return (
+
+        <div>
+           
+            <h1>Welcome Back {username}!</h1>
+            <h2>Recent Activities:</h2>
+
+            <ul>
                 {activities.map((activity, index)=> (
                     <li key = {index + 1}>
                         <ul>
@@ -60,10 +86,13 @@ const MyJournal: React.FC  = () => {
                             </ul>
                     </li>
                 ))}
-            </ul> */}
-            
+            </ul>
         </div>
+            
+        
         )
 }
 
-    export default MyJournal
+export default Dashboard
+
+// testing again

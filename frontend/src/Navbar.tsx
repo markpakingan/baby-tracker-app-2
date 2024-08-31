@@ -23,7 +23,7 @@ const NavBar: React.FC = () => {
     return (
         <nav>
             <ul>
-                <li><a href='/'> Home </a></li>
+                <li><a href='/dashboard'> Home </a></li>
                 <li><a href='/my-journal'> My Journal </a></li>
                 <li><a href='/add-sched'> Add Sched </a></li>
                 <li><a href='/profile'> Profile </a></li>

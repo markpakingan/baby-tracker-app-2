@@ -1,13 +1,16 @@
 import React, {useState, ChangeEvent, FormEvent} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddBabyForm = () => {
 
-
+    const storedUserId = localStorage.getItem('userId')
+    const navigate = useNavigate();
     const initialState = {
         name: "", 
         gender: "", 
         dateOfBirth: "", 
+        userId: storedUserId
     }
 
     const BACKEND_URL  = "http://localhost:3000";
@@ -28,6 +31,7 @@ const AddBabyForm = () => {
             const response = await axios.post(`${BACKEND_URL}/baby/create`, formData);
             setFormData(initialState);
             alert("Baby Created!");
+            navigate('/dashboard')
 
             console.log(
                 {
@@ -48,6 +52,7 @@ const AddBabyForm = () => {
     return(
         <div>
             <form onSubmit={handleSubmit}>
+
 
                 <label htmlFor="name"></label>
                 <input

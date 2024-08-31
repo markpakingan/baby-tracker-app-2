@@ -10,6 +10,7 @@ import Logout from './Logout';
 import SignUpForm from './forms/SignupForm';
 import LogInForm from './forms/LoginForm';
 import AddBabyForm from './forms/AddBabyForm';
+import Dashboard from './Dashboard';
 
 function App() {
 
@@ -17,10 +18,11 @@ function App() {
 
   return (
     <div className="App" >
-        <Router>
+        <BrowserRouter>
           <NavBar/>
             <Routes>
               <Route path ="/" element = {<Home/>} />
+              <Route path ="/dashboard" element = {<Dashboard/>} />
               <Route path ="/my-journal" element = {<MyJournal/>} />
               <Route path ="/add-sched" element = {<AddSched/>} />
               <Route path ="/profile" element = {<Profile/>} />
@@ -29,7 +31,7 @@ function App() {
               <Route path ="/login" element = {<LogInForm/>} />
               <Route path ="/add-baby" element = {<AddBabyForm/>} />
   ß          </Routes>     
-        </Router>
+        </BrowserRouter>
     </div>
   );
 }
