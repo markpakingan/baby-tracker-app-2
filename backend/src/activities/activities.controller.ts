@@ -18,4 +18,3 @@ export class ActivitiesController {
 }
 
 
-// /testing
