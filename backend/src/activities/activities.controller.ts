@@ -8,12 +8,20 @@ export class ActivitiesController {
 
 
     // @UseGuards(AuthGuard)
-    @Get('recent')
+    @Get('/recent')
     async getRecentActivities(
         @Query('id') userId: number
     ){
         return this.activityService.getLastActivities(userId)
 
+    }
+
+
+    @Get('/daily')
+    async getDailyActivities(
+        @Query('id') userId: number
+    ){
+        return this.activityService.getTopTenRecentActivities(userId)
     }
 }
 

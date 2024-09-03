@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
-import NavBar from './Navbar';
+import NavBar from '../Navbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from './Home';
-import MyJournal from './MyJournal';
-import AddSched from './forms/AddSched';
-import Profile from './Profile';
-import Logout from './Logout';
-import SignUpForm from './forms/SignupForm';
-import LogInForm from './forms/LoginForm';
-import AddBabyForm from './forms/AddBabyForm';
-import Dashboard from './Dashboard';
+import Home from '../Home';
+import MyJournal from '../MyJournal';
+import AddSched from '../forms/AddSched';
+import Profile from '../Profile';
+import Logout from '../Logout';
+import SignUpForm from '../forms/SignupForm';
+import LogInForm from '../forms/LoginForm';
+import AddBabyForm from '../forms/AddBabyForm';
+import Dashboard from '../Dashboard';
 
 function App() {
 

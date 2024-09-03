@@ -19,11 +19,11 @@ const MyJournal: React.FC  = () => {
     // fetches the most recent activity of users
     useEffect(()=> {
 
-        const fetchRecentActivity = async () => {
+        const fetchTopTenActivities = async () => {
 
 
             try{
-                const response = await axios.get(`${BACKEND_URL}/activities/recent`, {
+                const response = await axios.get(`${BACKEND_URL}/activities/daily`, {
                     headers:{
                         Authorization: `Bearer ${token}`,
                     },
@@ -43,7 +43,7 @@ const MyJournal: React.FC  = () => {
         
         }
 
-    fetchRecentActivity();
+    fetchTopTenActivities();
    }, [navigate, token, userId])
 
 
@@ -51,7 +51,7 @@ const MyJournal: React.FC  = () => {
         <div>
             <h1>Here Are All Of What You've Done:</h1>
 
-            {/* <ul>
+            <ul>
                 {activities.map((activity, index)=> (
                     <li key = {index + 1}>
                         <ul>
@@ -60,7 +60,7 @@ const MyJournal: React.FC  = () => {
                             </ul>
                     </li>
                 ))}
-            </ul> */}
+            </ul>
             
         </div>
         )
