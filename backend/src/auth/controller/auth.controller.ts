@@ -1,5 +1,6 @@
 import { Controller, HttpStatus, Logger, Post, HttpCode, Body,
-    UseGuards, Request, Get
+    UseGuards, Request, Get,
+    Query
  } from '@nestjs/common';
 import { UserController } from 'src/user/controller/user.controller';
 import { AuthService } from '../service/auth.service';
@@ -24,10 +25,27 @@ export class AuthController {
         }
     }
 
-    @UseGuards(AuthGuard)
-    @Get('profile')
-    getProfile(@Request() req){
-        return req.user;
+    // @UseGuards(AuthGuard)
+    // @Get('/profile')
+    // getProfile(@Request() req){
+    //     return req.user;
+    // }
+
+    @Get('/profile')
+    async getProfile(
+        @Query('userId') userId: number
+    ){
+
+        try{
+
+            return "yes, i'm working"
+
+        }catch(error){
+            this.logger.error(UserController.name, error)
+            throw error;
+        }
     }
+
+
 
 }

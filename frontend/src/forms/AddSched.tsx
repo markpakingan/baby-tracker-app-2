@@ -1,20 +1,64 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 const AddSched: React.FC = () => {
-    const handleClick = async () => {
+
+    const BACKEND_URL = "http://localhost:3000";
+    const userId = localStorage.getItem("userId")
 
 
-        const userId = localStorage.getItem("userId")
+      //gets the assigned BabyId of the user
+      useEffect(()=> {
+
+        const fetchAssignedBaby = async() => {
+
+            try{
+                const response = await axios.get(`${BACKEND_URL}/baby/user/${userId}`, {
+                })
+
+                console.log("Current BabyId", response.data.id);
+                localStorage.setItem('babyId', response.data.id)
+
+            }catch(error){
+                console.error("error fetching assigned baby", error)
+            }
+        }
+        fetchAssignedBaby();
+    });
+
+
+    const handleNaptimeClick = async () => {
+
+        const currentBabyId = localStorage.getItem('babyId')
         try{
             const createNapTimeDto = {
                 date: new Date().toISOString(),
                 userId: userId, 
-                babyId: 11,
+                babyId: currentBabyId,
             }
         
-            const response = await axios.post('http://localhost:3000/naptime/create', createNapTimeDto);
+            const response = await axios.post(`${BACKEND_URL}/naptime/create`, createNapTimeDto);
             console.log("Created object", response);
+            alert("Nap Time Recorded!")
+
+
+        }catch(error){
+            console.error("There was an error", error)
+        }
+    };
+    const handleDiaperTimeClick = async () => {
+
+        const currentBabyId = localStorage.getItem('babyId')
+        try{
+            const createDiapertimeDto = {
+                date: new Date().toISOString(),
+                userId: userId, 
+                babyId: currentBabyId,
+            }
+        
+            const response = await axios.post(`${BACKEND_URL}/diapertime/create`, createDiapertimeDto);
+            console.log("Created object", response);
+            alert("Diaper Time Recorded!")
 
         }catch(error){
             console.error("There was an error", error)
@@ -22,13 +66,37 @@ const AddSched: React.FC = () => {
     };
 
 
+    const handleFeedTimeClick = async () => {
+
+        const currentBabyId = localStorage.getItem('babyId')
+        try{
+            const createFeedTimeDto = {
+                date: new Date().toISOString(),
+                userId: userId, 
+                babyId: currentBabyId,
+            }
+        
+            const response = await axios.post(`${BACKEND_URL}/feedtime/create`, createFeedTimeDto);
+            console.log("Created object", response);
+            alert("Feed Time Recorded!");
+
+
+        }catch(error){
+            console.error("There was an error", error)
+        }
+    };
+
+
+    
+  
+
     return (
         <div>
             <h2>Ready to log for Baby Axel</h2>
-            <button onClick={handleClick}>Sleepy Time</button>
-            <button onClick={handleClick}>Diaper Time</button>
-            <button onClick={handleClick}>Tummy Time</button>
-            <button onClick={handleClick}>Bath Time</button>
+            <button onClick={handleNaptimeClick}>Nap Time</button>
+            <button onClick={handleDiaperTimeClick}>Diaper Time</button>
+            <button onClick={handleFeedTimeClick}>Feed Time</button>
+            {/* <button onClick={handleClick}>Bath Time</button> */}
         </div>
     );
 };

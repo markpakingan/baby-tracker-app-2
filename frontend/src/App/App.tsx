@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-rou
 import Home from '../Home';
 import MyJournal from '../MyJournal';
 import AddSched from '../forms/AddSched';
-import Profile from '../Profile';
 import Logout from '../Logout';
 import SignUpForm from '../forms/SignupForm';
 import LogInForm from '../forms/LoginForm';
 import AddBabyForm from '../forms/AddBabyForm';
 import Dashboard from '../Dashboard';
+import ProfileForm from '../forms/ProfileForm';
 
 function App() {
 
@@ -25,11 +25,11 @@ function App() {
               <Route path ="/dashboard" element = {<Dashboard/>} />
               <Route path ="/my-journal" element = {<MyJournal/>} />
               <Route path ="/add-sched" element = {<AddSched/>} />
-              <Route path ="/profile" element = {<Profile/>} />
               <Route path ="/logout" element = {<Logout/>} />
               <Route path ="/signup" element = {<SignUpForm/>} />
               <Route path ="/login" element = {<LogInForm/>} />
               <Route path ="/add-baby" element = {<AddBabyForm/>} />
+              <Route path ="/profile" element = {<ProfileForm/>} />
   ß          </Routes>     
         </BrowserRouter>
     </div>
