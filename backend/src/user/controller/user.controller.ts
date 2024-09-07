@@ -54,6 +54,18 @@ export class UserController {
         }
     }
 
+    @Get('/getUserInfo')
+    async getUserInfo(
+        @Query('id') id:number
+    ){
+        try{
+            return await this.userService.getOne(id)
+        }catch(error){
+            this.logger.error(UserController.name, error)
+            throw error;
+        }
+    }
+
 
     @Patch('/update')
     async updateUser(

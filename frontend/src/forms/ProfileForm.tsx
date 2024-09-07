@@ -78,11 +78,11 @@ const ProfileForm = () => {
 
         // Set the user information in the component's state
         setFormData({
-          username: response.data.username,
+          username: response.data.data.username,
           password: "testing",
-          firstname: response.data.firstname,
-          lastname: response.data.lastname,
-          email: response.data.email,
+          firstname: response.data.data.firstname,
+          lastname: response.data.data.lastname,
+          email: response.data.data.email,
         });
 
         console.log("response", response);

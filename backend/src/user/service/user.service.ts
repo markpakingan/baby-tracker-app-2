@@ -118,6 +118,36 @@ export class UserService {
   
     }
 
+    //gets userInfo including the password
+    async getUserInfo(
+      id: number
+    ){
+
+      const existingUser = await this.repo.findOne({where: {id}})
+
+      if (!existingUser){
+        throw new NotFoundException("UserID not found!")
+      }
+
+
+      const foundUser =  new UserEntity; 
+      foundUser.id = existingUser.id;
+      foundUser.username = existingUser.username; 
+      foundUser.firstname = existingUser.firstname; 
+      foundUser.lastname = existingUser.lastname; 
+      foundUser.password = existingUser.password; 
+      foundUser.email = existingUser.email; 
+
+
+      return {
+        status: "OK", 
+        message: "User found successfully",
+        data: foundUser
+      }
+
+  
+    }
+
   async update(
     updateUserDto: UpdateUserDto, 
     id: number
