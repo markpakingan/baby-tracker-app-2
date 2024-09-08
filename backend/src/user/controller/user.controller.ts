@@ -54,12 +54,12 @@ export class UserController {
         }
     }
 
-    @Get('/getUserInfo')
+    @Get('/retreive')
     async getUserInfo(
         @Query('id') id:number
     ){
         try{
-            return await this.userService.getOne(id)
+            return await this.userService.getUserInfo(id)
         }catch(error){
             this.logger.error(UserController.name, error)
             throw error;

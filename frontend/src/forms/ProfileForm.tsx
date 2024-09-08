@@ -32,35 +32,29 @@ const ProfileForm = () => {
     e.preventDefault();
 
     try {
-      // const response = await axios.put(
-      //   `${BASE_URL}/user/${userName}`,
-      //   formData,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   }
+      const response = await axios.patch(
+        `${BASE_URL}/user/update?id=${userId}`,
+        formData
+      );
 
-      // );
+      console.log("response.data", response.data);
 
-      // console.log("response.data", response.data);
-      // if (response.data) {
-      //   // Update each field individually
-      //   setFormData((prevData) => ({
-      //     ...prevData,
-      //     username: response.data.username,
-      //     password: response.data.password,
-      //     firstname: response.data.firstname,
-      //     lastname: response.data.lastname,
-      //     email: response.data.email
-      //   }));
+      if (response.data) {
+        // Update each field individually
+        setFormData((prevData) => ({
+          ...prevData,
+          username: response.data.data.username,
+          password: response.data.data.password,
+          firstname: response.data.data.firstname,
+          lastname: response.data.data.lastname,
+          email: response.data.data.email
+        }));
 
 
-      //   console.log("Profile updated successfully!", response.data);
-      //   alert("Profile has been updated!")
-      // }
+        console.log("Profile updated successfully!", response.data);
+        alert("Profile has been updated!")
+      }
 
-      console.log('You clicked submit');
     } catch (error) {
       console.error("Error updating profile", error);
     }
@@ -73,19 +67,18 @@ const ProfileForm = () => {
     const fetchUserInfo = async () => {
       try {
         // Make a GET request to fetch user information
-        const response = await axios.get(`${BASE_URL}/user/getone?id=${userId}`,
+        const response = await axios.get(`${BASE_URL}/user/retreive?id=${userId}`,
         );
 
         // Set the user information in the component's state
         setFormData({
           username: response.data.data.username,
-          password: "testing",
+          password: response.data.data.password,
           firstname: response.data.data.firstname,
           lastname: response.data.data.lastname,
           email: response.data.data.email,
         });
 
-        console.log("response", response);
       } catch (error) {
         console.error("Error fetching user information", error);
       }
@@ -166,4 +159,3 @@ const ProfileForm = () => {
 export default ProfileForm;
 
 
-// testing
