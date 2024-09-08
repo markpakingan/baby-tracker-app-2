@@ -47,23 +47,37 @@ const MyJournal: React.FC  = () => {
    }, [navigate, token, userId])
 
 
-    return (
-        <div>
-            <h1>Here Are All Of What You've Done:</h1>
+   //creates category for each activity
+   const groupedActivities = activities.reduce((acc, activity) => {
+    const {type} = activity;
 
-            <ul>
-                {activities.map((activity, index)=> (
-                    <li key = {index + 1}>
-                        <ul>
-                            <li>{activity.type}: </li>
-                            <li>{new Date(activity.date).toLocaleString()}</li>
-                            </ul>
-                    </li>
-                ))}
-            </ul>
-            
+    if(!acc[type]){
+        acc[type] = [];
+    }
+
+    acc[type].push(activity);
+    return acc;
+   }, {} as Record<string, any[]>);
+
+
+   return (
+    <div>
+      <h1>Here Are All Of What You've Done:</h1>
+
+      {Object.keys(groupedActivities).map((type) => (
+        <div key={type}>
+          <h2>{type}</h2>
+          <ul>
+            {groupedActivities[type].map((activity: any, index: any) => (
+              <li key={index}>
+                {new Date(activity.date).toLocaleString()}
+              </li>
+            ))}
+          </ul>
         </div>
-        )
+      ))}
+    </div>
+  );
 }
 
     export default MyJournal
