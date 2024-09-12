@@ -13,10 +13,9 @@ import { NapTimeEntity } from "./naptime/naptime.entity";
 import { AuthModule } from './auth/auth.module';
 import { FeedtimeModule } from './feedtime/feedtime.module';
 import { FeedTimeEntity } from "./feedtime/feedtime.entity";
-import { DiapertimeModule } from './diapertime/diapertime.module';
+import { DiaperTimeModule } from './diapertime/diapertime.module';
 import { DiaperTimeEntity } from "./diapertime/diapertime.entity";
-// import { ActivitiesController } from './activities/activities.controller';
-// import { ActivitiesService } from './activities/activities.service';
+import { ActivitiesController } from './activities/activities.controller';
 import { ActivitiesModule } from './activities/activities.module';
 
 
@@ -54,7 +53,7 @@ import { ActivitiesModule } from './activities/activities.module';
         NapTimeModule,
         AuthModule,
         FeedtimeModule,
-        DiapertimeModule,
+        DiaperTimeModule,
         ActivitiesModule,
     ],
     controllers: [AppController],
