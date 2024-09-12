@@ -11,4 +11,4 @@ import { UserEntity } from 'src/user/user.entity';
   providers: [DiapertimeService],
   controllers: [DiapertimeController]
 })
-export class DiapertimeModule {}
+export class DiaperTimeModule {}
