@@ -13,10 +13,13 @@ const ProfileForm = () => {
     password:"",
     firstname:"",
     lastname:"",
-    email:"",
+    email:"", 
+    newPassword: "",
+    confirmPassword: ""
   };
 
   const [formData, setFormData] = useState(initialState)
+  const [passwordUpdate, setPasswordUpdate] = useState(false);
   const navigate = useNavigate();
 
 
@@ -31,10 +34,28 @@ const ProfileForm = () => {
   const handleSubmit = async (e:any) => {
     e.preventDefault();
 
+
+    if(passwordUpdate && formData.newPassword !== formData.confirmPassword){
+      alert("Passwords do not match!");
+      return;
+    }
+
+
     try {
+
+
+      const payload = {
+        username: formData.username, 
+        firstname: formData.firstname, 
+        lastname: formData.lastname, 
+        email: formData.email, 
+        ...(passwordUpdate && {password: formData.newPassword})
+      }
+
+
       const response = await axios.patch(
         `${BASE_URL}/user/update?id=${userId}`,
-        formData
+        payload
       );
 
       console.log("response.data", response.data);
@@ -44,10 +65,11 @@ const ProfileForm = () => {
         setFormData((prevData) => ({
           ...prevData,
           username: response.data.data.username,
-          password: response.data.data.password,
           firstname: response.data.data.firstname,
           lastname: response.data.data.lastname,
-          email: response.data.data.email
+          email: response.data.data.email, 
+          newPassword: "", 
+          confirmPassword: ""
         }));
 
 
@@ -66,17 +88,17 @@ const ProfileForm = () => {
 
     const fetchUserInfo = async () => {
       try {
-        // Make a GET request to fetch user information
         const response = await axios.get(`${BASE_URL}/user/retreive?id=${userId}`,
         );
 
-        // Set the user information in the component's state
         setFormData({
           username: response.data.data.username,
           password: response.data.data.password,
           firstname: response.data.data.firstname,
           lastname: response.data.data.lastname,
           email: response.data.data.email,
+          newPassword: "", 
+          confirmPassword: ""
         });
 
       } catch (error) {
@@ -94,64 +116,77 @@ const ProfileForm = () => {
     <div>
       <h1>Profile</h1>
 
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username"> Username</label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          <label htmlFor="firstname"> First Name</label>
+          <input
+            id="firstname"
+            type="text"
+            name="firstname"
+            placeholder="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
+          />
+          <label htmlFor="lastname"> Last Name</label>
+          <input
+            id="lastname"
+            type="text"
+            name="lastname"
+            placeholder="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
+          />
+          <label htmlFor="email"> Email</label>
+          <input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          
+          {/* Toggle password update section */}
+          <button type="button" onClick={() => setPasswordUpdate(!passwordUpdate)}>
+            {passwordUpdate ? "Cancel Password Change" : "Change Password"}
+          </button>
 
-        <form onSubmit={handleSubmit}>
-            <div>
-
-              <label htmlFor="username"> Username</label>
+          {passwordUpdate && (
+            <>
+              <label htmlFor="newPassword"> New Password</label>
               <input
-                id="username"
-                type="text"
-                name="username"
-                placeholder="username"
-                value={formData.username}
+                id="newPassword"
+                type="password"
+                name="newPassword"
+                placeholder="New password"
+                value={formData.newPassword}
                 onChange={handleChange}
               />
-
-              <label htmlFor="password"> Password</label>
+              <label htmlFor="confirmPassword"> Confirm Password</label>
               <input
-                id="password"
-                type="text"
-                name="password"
-                placeholder="password"
-                value={formData.password}
+                id="confirmPassword"
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                value={formData.confirmPassword}
                 onChange={handleChange}
               />
+            </>
+          )}
 
+          <button type="submit">Save Changes</button>
+        </div>
+      </form>
 
-                <label htmlFor="firstname"> Firstname</label>
-                <input
-                  id="firstname"
-                  type="text"
-                  name="firstname"
-                  placeholder="firstname"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                  />
-
-                <label htmlFor="lastname"> Last Name</label>
-                  <input
-                    id="lastname"
-                    type="text"
-                    name="lastname"
-                    placeholder="lastname"
-                    value={formData.lastname}
-                    onChange={handleChange}
-                  />
-
-                <label htmlFor="email"> Email</label>
-                  <input
-                    id="email"
-                    type="text"
-                    name="email"
-                    placeholder="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-
-                  <button onSubmit={handleSubmit}> Save Changes</button>
-            </div>
-          </form>
     </div>
   )
 };
