@@ -22,8 +22,16 @@ export class BabyService {
     async create(
         createBabyDto: CreateBabyDto
     ){
+        
+        const existingBaby = await this.babyRepo.findOne({
+            where: {
+                name: createBabyDto.name,
+                user: {
+                    id: createBabyDto.userId
+                }
+            }
+        });
 
-        const existingBaby = await this.babyRepo.findOneBy({name: createBabyDto.name})
 
         if(existingBaby){
             throw new NotFoundException("Duplicate name existed!")

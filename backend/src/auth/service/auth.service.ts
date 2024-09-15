@@ -32,6 +32,7 @@ export class AuthService {
             throw new NotFoundException("Username not found!")
         }
 
+
         const isPasswordValid = await this.validatePassword(loginDto.password, user.password)
 
         if(!isPasswordValid){
