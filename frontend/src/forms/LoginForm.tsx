@@ -27,16 +27,16 @@ const LogInForm = () => {
 
         try{
             const response = await axios.post(`${BACKEND_URL}/auth/login`, formData);
-            setFormData(initialState);
-            alert("Login Authenticated!");
-            navigate("/login")
-
             const token = response.data.access_token;
             const userId = response.data.userId;
 
             localStorage.setItem("token", token);
             localStorage.setItem("username", formData.username);
             localStorage.setItem("userId", userId);
+
+
+            setFormData(initialState);
+            alert("Login Authenticated!");
 
             navigate("/dashboard");
 

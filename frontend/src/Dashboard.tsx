@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useNavigate, Link} from "react-router-dom";
+import NavBar from "./Navbar";
 
 
 const Dashboard: React.FC  = () => {
@@ -12,7 +13,6 @@ const Dashboard: React.FC  = () => {
     const BACKEND_URL = "http://localhost:3000";
     const navigate = useNavigate();
     const [activities, setActivities] = useState<any[]>([]);
-
  
     // fetches the most recent activity of users
     useEffect(()=> {
@@ -31,8 +31,7 @@ const Dashboard: React.FC  = () => {
                 })
 
                 console.log(response)
-                setActivities(response.data)
-
+                setActivities(response.data);
                 
             } catch(error){
                 console.error("error fetching profile", error);
@@ -68,31 +67,27 @@ const Dashboard: React.FC  = () => {
     checkIfBabyExist();
    }, [navigate, token,userId]);
 
-
     
     return (
-
+            
         <div>
-           
+            <NavBar /> 
             <h1>Welcome Back {username}!</h1>
             <h2>Recent Activities:</h2>
-
             <ul>
-                {activities.map((activity, index)=> (
-                    <li key = {index + 1}>
+                {activities.map((activity, index) => (
+                    <li key={index + 1}>
                         <ul>
                             <li>{activity.type}: </li>
                             <li>{new Date(activity.date).toLocaleString()}</li>
-                            </ul>
+                        </ul>
                     </li>
                 ))}
             </ul>
         </div>
-            
         
         )
 }
 
 export default Dashboard
 
-// testing again

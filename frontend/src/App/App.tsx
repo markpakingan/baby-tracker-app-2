@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import NavBar from '../Navbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
@@ -15,11 +15,21 @@ import ProfileForm from '../forms/ProfileForm';
 function App() {
 
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+
+  useEffect(()=> {
+
+    const storedToken = localStorage.getItem('token'); 
+    if(storedToken){
+      setIsAuthenticated(true)
+    }
+  }, [])
+
 
   return (
     <div className="App" >
         <BrowserRouter>
-          <NavBar/>
+          { isAuthenticated && < NavBar/>}
             <Routes>
               <Route path ="/" element = {<Home/>} />
               <Route path ="/dashboard" element = {<Dashboard/>} />

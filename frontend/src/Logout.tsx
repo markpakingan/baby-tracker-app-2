@@ -15,6 +15,7 @@ const Logout: React.FC  = () => {
             localStorage.removeItem("token");
             localStorage.removeItem("username");
             localStorage.removeItem("userId");
+            localStorage.removeItem("babyId");
             
             setHasLoggedOut(true);
 
