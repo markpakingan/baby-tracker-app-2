@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
+.website-title{
+    font-family: 'Sofia'; 
+    font-size: 7rem;
+    
+}
+
+.logo{
+    background-image: url('../assets/Bath\ Logo.png');
+    background-size: contain;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+

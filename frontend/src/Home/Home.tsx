@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './Home.css';
+
 
 
 const Home: React.FC  = () => {
@@ -7,7 +9,9 @@ const Home: React.FC  = () => {
     return (
         
                 <div>
-                    <h1>The Bath App</h1>
+                    <h1 className="website-title">The Bath App</h1>
+
+                    <div className="logo"></div>
                     <h2>Baby Tracker App</h2>
 
                     <Link to="/login">

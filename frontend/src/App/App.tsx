@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import NavBar from '../Navbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from '../Home';
+import Home from '../Home/Home';
 import MyJournal from '../MyJournal';
 import AddSched from '../forms/AddSched';
 import Logout from '../Logout';
