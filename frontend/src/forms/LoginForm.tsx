@@ -58,6 +58,10 @@ const LogInForm = () => {
 
     return(
         <div>
+            <h1 className="website-title">The Bath App</h1>
+            <div className="logo"></div>
+            <h2>Baby Tracker App</h2> 
+
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="username"></label>

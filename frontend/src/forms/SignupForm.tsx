@@ -2,6 +2,7 @@ import React, {ChangeEvent, FormEvent, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const SignUpForm = () => {
     const initialState = {
         username: "", 
@@ -52,6 +53,11 @@ const SignUpForm = () => {
 
     return(
         <div>
+
+            <h1 className="website-title">The Bath App</h1>
+            <div className="logo"></div>
+            <h2>Baby Tracker App</h2> 
+
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username"></label>
                 <input

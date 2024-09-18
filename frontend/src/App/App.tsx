@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import NavBar from '../Navbar';
+import NavBar from '../navbar/Navbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from '../Home/Home';
 import MyJournal from '../MyJournal';
@@ -14,22 +14,24 @@ import ProfileForm from '../forms/ProfileForm';
 
 function App() {
 
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const [token, setToken] = useState(localStorage.getItem('token'))
+  const storedToken = localStorage.getItem('token')
+  const [isAuthenticated, setIsAuthenticated] = useState(!!storedToken); 
 
   useEffect(()=> {
 
     const storedToken = localStorage.getItem('token'); 
     if(storedToken){
+      setToken(storedToken)
       setIsAuthenticated(true)
     }
-  }, [])
+  }, [token])
 
 
   return (
     <div className="App" >
         <BrowserRouter>
-          { isAuthenticated && < NavBar/>}
+          < NavBar/>
             <Routes>
               <Route path ="/" element = {<Home/>} />
               <Route path ="/dashboard" element = {<Dashboard/>} />

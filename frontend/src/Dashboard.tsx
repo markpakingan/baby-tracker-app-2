@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useNavigate, Link} from "react-router-dom";
-import NavBar from "./Navbar";
+import NavBar from "./navbar/Navbar";
 
 
 const Dashboard: React.FC  = () => {
@@ -71,7 +71,6 @@ const Dashboard: React.FC  = () => {
     return (
             
         <div>
-            <NavBar /> 
             <h1>Welcome Back {username}!</h1>
             <h2>Recent Activities:</h2>
             <ul>
