@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import "./AddSched.css";
+
 
 const AddSched: React.FC = () => {
 
@@ -93,9 +95,9 @@ const AddSched: React.FC = () => {
     return (
         <div>
             <h2>Ready to log for Baby Axel</h2>
-            <button onClick={handleNaptimeClick}>Nap Time</button>
-            <button onClick={handleDiaperTimeClick}>Diaper Time</button>
-            <button onClick={handleFeedTimeClick}>Feed Time</button>
+            <button className="addSched-button" onClick={handleNaptimeClick}>Nap Time</button>
+            <button className="addSched-button" onClick={handleDiaperTimeClick}>Diaper Time</button>
+            <button className="addSched-button" onClick={handleFeedTimeClick}>Feed Time</button>
             {/* <button onClick={handleClick}>Bath Time</button> */}
         </div>
     );

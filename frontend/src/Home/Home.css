@@ -15,3 +15,13 @@
     margin: 0 auto;
 }
 
+
+.home-button{
+    font-size: 1.2rem; 
+    padding: 10px 200px;
+    width: 51%;
+    height: auto; 
+    background-color: #bbe7fe;
+    border-radius: 10px;
+  }
+  

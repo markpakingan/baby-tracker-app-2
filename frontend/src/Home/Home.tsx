@@ -15,11 +15,11 @@ const Home: React.FC  = () => {
                     <h2>Baby Tracker App</h2>
 
                     <Link to="/login">
-                         <button>Log In</button>
+                         <button className="home-button">Log In</button>
                      </Link>
 
                     <Link to="/signup">
-                        <button>Sign Up</button>
+                        <button className="home-button">Sign Up</button>
                     </Link>
                 </div>
            
