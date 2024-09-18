@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate} from "react-router-dom";
 
 
-const Logout: React.FC  = () => {
+interface LogoutProps {
+    setIsAuthenticated: (value: boolean) => void;
+  }
+  
+const Logout: React.FC<LogoutProps>  = ({setIsAuthenticated}) => {
 
     const navigate = useNavigate();
     const [hasLoggedOut, setHasLoggedOut] = useState(false)
@@ -20,7 +24,7 @@ const Logout: React.FC  = () => {
             setHasLoggedOut(true);
 
             navigate("/")
-            
+            setIsAuthenticated(false);
             setTimeout(() => {
                 alert("You have been logged out!");
             }, 0);
