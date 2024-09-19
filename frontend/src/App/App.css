@@ -39,7 +39,8 @@
 }
 
 body{
-  background-image: url(../assets/background.png);
+  background-image: url(../assets/background-3.png);
+  background-size: cover;
 }
 
 
@@ -48,8 +49,11 @@ button{
   padding: 10px 200px;
   width: 100%;
   height: auto; 
-  background-color: #bbe7fe;
+  background-color: #F84791;
+  border-color: #F84791;
   border-radius: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 

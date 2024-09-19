@@ -9,10 +9,11 @@ const Home: React.FC  = () => {
     return (
         
                 <div>
-                    <h1 className="website-title">The Bath App</h1>
+                    <h1 className="website-title">B.A.T.H</h1>
 
                     <div className="logo"></div>
-                    <h2>Baby Tracker App</h2>
+                    
+                <h2>Baby Tracker App</h2>
 
                     <Link to="/login">
                          <button className="home-button">Log In</button>

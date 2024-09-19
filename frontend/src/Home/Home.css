@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sofia');
 
 .website-title{
-    font-family: 'Sofia'; 
+    font-family: Arial, Helvetica, sans-serif; 
     font-size: 7rem;
-    
+    margin-bottom: 10px;
 }
 
 .logo{
@@ -21,7 +21,14 @@
     padding: 10px 200px;
     width: 51%;
     height: auto; 
-    background-color: #bbe7fe;
+    background-color: #F84791;
     border-radius: 10px;
+    margin-top: 10px;
   }
-  
+
+  h2 {
+
+    margin-top: 10px;
+    font-family: 'Sofia'; 
+    font-size: 5rem;
+  }
