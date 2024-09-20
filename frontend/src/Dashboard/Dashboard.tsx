@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useNavigate, Link} from "react-router-dom";
-import NavBar from "./navbar/Navbar";
+import "./Dashboard.css"
 
 
 const Dashboard: React.FC  = () => {
@@ -71,8 +71,8 @@ const Dashboard: React.FC  = () => {
     return (
             
         <div>
-            <h1>Welcome Back {username}!</h1>
-            <h2>Recent Activities:</h2>
+            <h1 className="welcome-back">Welcome Back {username}!</h1>
+            <h2 className="recent-activities">Recent Activities:</h2>
             <ul>
                 {activities.map((activity, index) => (
                     <li key={index + 1}>
@@ -90,3 +90,6 @@ const Dashboard: React.FC  = () => {
 
 export default Dashboard
 
+
+
+// testing

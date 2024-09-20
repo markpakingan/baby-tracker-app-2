@@ -9,7 +9,7 @@ import Logout from '../Logout';
 import SignUpForm from '../forms/SignupForm';
 import LogInForm from '../forms/LoginForm';
 import AddBabyForm from '../forms/AddBabyForm';
-import Dashboard from '../Dashboard';
+import Dashboard from '../Dashboard/Dashboard';
 import ProfileForm from '../forms/ProfileForm';
 
 function App() {

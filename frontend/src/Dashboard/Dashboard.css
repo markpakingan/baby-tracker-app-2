@@ -1,0 +1,23 @@
+.welcome-back{
+    font-size: 3rem;
+}
+
+.recent-activities{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+    font-size: 10rem;
+}
+
+
+ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0; /* Removes default padding */
+  }
+  
+  li {
+    margin-bottom: 10px; /* Adds some spacing between the list items */
+  }
+  
