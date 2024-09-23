@@ -95,9 +95,11 @@ const AddSched: React.FC = () => {
     return (
         <div>
             <h2>Ready to log for Baby Axel</h2>
-            <button className="addSched-button" onClick={handleNaptimeClick}>Nap Time</button>
-            <button className="addSched-button" onClick={handleDiaperTimeClick}>Diaper Time</button>
-            <button className="addSched-button" onClick={handleFeedTimeClick}>Feed Time</button>
+            <button className="naptime-button" onClick={handleNaptimeClick}>
+                <img src="../assets/naptime.png" alt="nap-button"></img>
+                Nap Time</button>
+            <button className="diapertime-button" onClick={handleDiaperTimeClick}>Diaper Time</button>
+            <button className="feedtime-button" onClick={handleFeedTimeClick}>Feed Time</button>
             {/* <button onClick={handleClick}>Bath Time</button> */}
         </div>
     );

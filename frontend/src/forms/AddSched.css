@@ -1,11 +1,13 @@
-addSched-button{
+.naptime-button{
     font-size: 1.2rem; 
-    padding: 10px 200px;
+    padding: 10px 100px;
     width: 51%;
     height: auto; 
-    background-color: #bbe7fe;
+    background-color: F84791;
     border-radius: 10px;
   }
   
 
-  /* testing 2*/
+h2{
+    font-size: 3rem;
+}
