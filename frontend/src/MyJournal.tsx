@@ -62,11 +62,11 @@ const MyJournal: React.FC  = () => {
 
    return (
     <div>
-      <h1>Here Are All Of What You've Done:</h1>
+      <h2>Check Out Your Activities:</h2>
 
       {Object.keys(groupedActivities).map((type) => (
         <div key={type}>
-          <h2>{type}</h2>
+          <h3 className="activities">{type}</h3>
           <ul>
             {groupedActivities[type].map((activity: any, index: any) => (
               <li key={index}>
@@ -76,6 +76,9 @@ const MyJournal: React.FC  = () => {
           </ul>
         </div>
       ))}
+
+    <a href="/add-sched">Ready to Add Sched? Click Here</a>
+
     </div>
   );
 }

@@ -77,12 +77,14 @@ const Dashboard: React.FC  = () => {
                 {activities.map((activity, index) => (
                     <li key={index + 1}>
                         <ul>
-                            <li>{activity.type}: </li>
+                            <li className="activities">{activity.type}: </li>
                             <li>{new Date(activity.date).toLocaleString()}</li>
                         </ul>
                     </li>
                 ))}
             </ul>
+
+            <a href="/add-sched">Ready to Add Sched? Click Here</a>
         </div>
         
         )
