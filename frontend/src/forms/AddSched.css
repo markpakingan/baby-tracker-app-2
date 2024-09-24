@@ -1,13 +1,32 @@
-.naptime-button{
-    font-size: 1.2rem; 
-    padding: 10px 100px;
-    width: 51%;
-    height: auto; 
-    background-color: F84791;
-    border-radius: 10px;
-  }
-  
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Adjust space between buttons */
+    align-items: center; /* Vertically center icons and text */
+    gap: 20px; /* Space between buttons */
+    flex-wrap: nowrap; /* Prevent buttons from wrapping to a new line */
+    padding: 20px;
+}
 
-h2{
+.naptime-button, .diapertime-button, .feedtime-button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    color: #F84791 ;
+    width: 30%;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Keep icon and text stacked */
+    align-items: center;
+    gap: 10px;
+}
+
+.naptime-icon, .diapertime-icon, .feedtime-icon {
+    width: 300px; /* Increase icon size here */
+    height: auto; /* Let the height scale automatically based on width */
+}
+
+h2 {
     font-size: 3rem;
+    text-align: center;
 }

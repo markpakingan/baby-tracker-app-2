@@ -110,7 +110,7 @@ const SignUpForm = () => {
 
             </form>
 
-            <a href="/login"><p>Already Have An Account? LOGIN</p></a>
+            <a href="/login">Already Have An Account? LOGIN</a>
             
         </div>
 
