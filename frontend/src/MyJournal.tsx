@@ -84,3 +84,6 @@ const MyJournal: React.FC  = () => {
 }
 
     export default MyJournal
+
+
+// testing
