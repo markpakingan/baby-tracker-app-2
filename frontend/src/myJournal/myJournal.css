@@ -1,0 +1,22 @@
+.activity-item {
+    display: flex;
+    justify-content: space-between; /* Space between button and date */
+    align-items: center; /* Vertical alignment */
+  }
+  
+  .delete {
+    width: auto; /* Let the button size to its content */
+    padding: 5px; /* Add some padding for better appearance */
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  
+  .activity-date {
+    margin-left: 10px;
+    flex: 1; /* The date takes up remaining space */
+  }
+  

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "./myJournal.css"
 
 const MyJournal: React.FC  = () => {
 
@@ -60,6 +60,14 @@ const MyJournal: React.FC  = () => {
    }, {} as Record<string, any[]>);
 
 
+   const handleDelete = ()=> {
+
+    try{
+      alert("You delete this date!")
+    }catch(err){
+      console.error(err)
+    }
+   }
    return (
     <div>
       <h2>Check Out Your Activities:</h2>
@@ -70,6 +78,7 @@ const MyJournal: React.FC  = () => {
           <ul>
             {groupedActivities[type].map((activity: any, index: any) => (
               <li key={index}>
+                <button className="delete" onClick={handleDelete}>x</button>
                 {new Date(activity.date).toLocaleString()}
               </li>
             ))}

@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from '../navbar/Navbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from '../Home/Home';
-import MyJournal from '../MyJournal';
+import MyJournal from '../myJournal/MyJournal';
 import AddSched from '../forms/AddSched';
 import Logout from '../Logout';
 import SignUpForm from '../forms/SignupForm';
