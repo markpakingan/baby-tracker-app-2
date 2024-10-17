@@ -1,10 +1,17 @@
 import { Controller, Get, Query, Delete, Param} from '@nestjs/common';
 import { ActivityService } from './activities.service';
+import { NapTimeService } from 'src/naptime/service/naptime.service';
+import { FeedtimeService } from 'src/feedtime/service/feedtime.service';
+import { DiapertimeService } from 'src/diapertime/service/diapertime.service';
 
 @Controller('activities')
 export class ActivitiesController {
 
-    constructor(private readonly activityService: ActivityService){}
+    constructor(
+        private readonly activityService: ActivityService,
+        private readonly napTimeService: NapTimeService,
+        private readonly feedTimeService: FeedtimeService,
+        private readonly diaperTimeService: DiapertimeService){}
 
 
     // @UseGuards(AuthGuard)
@@ -24,11 +31,18 @@ export class ActivitiesController {
         return this.activityService.getTopTenRecentActivities(userId)
     }
 
-    @Delete(':id')
-    async deleteActivities(
-        @Param('id') id: number){
-            return this.activityService.deleteOneActivitiy(id)
-        }
+    // @Delete('/type')
+    // async deleteActivities(
+    //     @Param('type') type:string,
+    //     @Query('id') userId: number){
+
+    //         switch(type){
+    //             case 'naptime':
+    //                 return this.naptimeRepo.delete(id);
+    //         }
+                
+            
+    //     }
     
 }
 

@@ -60,10 +60,24 @@ const MyJournal: React.FC  = () => {
    }, {} as Record<string, any[]>);
 
 
-   const handleDelete = ()=> {
+   const handleDelete = async (activityId: number, activityType: string)=> {
+        try{
+          // alert("You delete this date!")
 
-    try{
-      alert("You delete this date!")
+          const response = await axios.delete(`${BACKEND_URL}/activities/${activityType}`, {
+            headers:{
+              Authorization: `Bearer ${token}`
+            },
+            params:{
+              id: activityId,
+          }
+          
+    }); 
+
+    setActivities(activities.filter(activity => activity.Id !== activityId));
+
+    alert(`Delete ${response}`)
+
     }catch(err){
       console.error(err)
     }
@@ -78,9 +92,11 @@ const MyJournal: React.FC  = () => {
           <ul>
             {groupedActivities[type].map((activity: any, index: any) => (
               <li key={index}>
-                <button className="delete" onClick={handleDelete}>x</button>
+                <button className="delete" 
+                onClick={() => handleDelete(activity.id, activity.type)}>x</button>
                 {new Date(activity.date).toLocaleString()}
               </li>
+
             ))}
           </ul>
         </div>

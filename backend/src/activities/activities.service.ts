@@ -154,8 +154,8 @@ export class ActivityService {
   return activities;
   }
 
-  async deleteOneActivity(id: number): Promise<void>{
-    await this.naptimeRepo.delete(id);
+  async deleteOneActivity(userId: number): Promise<void>{
+    await this.naptimeRepo.delete(userId);
   }
 
   
